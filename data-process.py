@@ -16,9 +16,10 @@ def get_line() :
     
     
 def get_dir (): 
-
-
-    return 
+    lines=open('movie_lines.txt').read().split('\n')
+    onv_lines = open('movie_conversations.txt').read().split('\n')
+    
+   return get_idr
     
     
 conv_lines = open('movie_conversations.txt').read().split('\n')
