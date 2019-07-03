@@ -21,8 +21,13 @@ def get_dir ():
     return 
     
     
+conv_lines = open('movie_conversations.txt').read().split('\n')
 
 def get_conversation(): 
+    convs = [ ]
+    for j in conv_lines[:-1]:
+        new2_line = j.split(' +++$+++ ')[-1][1:-1].replace("'","").replace(" ","")
+        convs.append(new2_line.split(','))
+    return convs
 
-
-      return 
+       
