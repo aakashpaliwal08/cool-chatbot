@@ -31,4 +31,16 @@ def get_conversation():
         convs.append(new2_line.split(','))
     return convs
 
-       
+ def split_dataset(convs, id2line):
+    questions = []; answers = []
+
+    for conv in convs:
+        if len(conv) %2 != 0:
+            conv = conv[:-1]
+        for i in range(len(conv)):
+            if i%2 == 0:
+                questions.append(id2line[conv[i]])
+            else:
+                answers.append(id2line[conv[i]])
+
+    return questions, answers    
