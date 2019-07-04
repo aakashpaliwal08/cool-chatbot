@@ -5,8 +5,8 @@ import os
 import re
 
 lines=open('movie_lines.txt').read().split('\n')
+id_idvalueline = {}
 def get_line() :
-  id_idvalueline = {}
   for i in lines:
         new_line = line.split(' +++$+++ ')
           if len(new_line) == 5:
@@ -20,25 +20,20 @@ def get_line() :
     
     
 conv_lines = open('movie_conversations.txt').read().split('\n')
+convs = [ ]
 def get_conversation(): 
-    convs = [ ]
     for j in conv_lines[:-1]:
         new2_line = j.split(' +++$+++ ')[-1][1:-1].replace("'","").replace(" ","")
         convs.append(new2_line.split(','))
     return convs
 
- def split_dataset(convs, id2line):
-    questions = []; answers = []
-    for conv in convs:
-        if len(conv) %2 != 0:
-            conv = conv[:-1]
-        for i in range(len(conv)):
-            if i%2 == 0:
-                questions.append(id2line[conv[i]])
-            else:
-                answers.append(id2line[conv[i]])
+questions = []
+answers = []
+for conversation in convs:
+    for i in range(len(convs) - 1):
+        questions.append(id2line[convs[i]])
+        answers.append(id2line[convs[i+1]])
 
-    return questions, answers    
 
    def clean_text(text):
     text = text.lower()
