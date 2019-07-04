@@ -10,20 +10,13 @@ def get_line() :
             id2line[new_line[0]] = new_line[4]
     return id_idvalueline 
     
-    
-    
-    
-    
-    
-def get_dir (): 
+ def get_dir (): 
     lines=open('movie_lines.txt').read().split('\n')
     onv_lines = open('movie_conversations.txt').read().split('\n')
-    
-   return get_idr
+    return get_idr
     
     
 conv_lines = open('movie_conversations.txt').read().split('\n')
-
 def get_conversation(): 
     convs = [ ]
     for j in conv_lines[:-1]:
@@ -33,7 +26,6 @@ def get_conversation():
 
  def split_dataset(convs, id2line):
     questions = []; answers = []
-
     for conv in convs:
         if len(conv) %2 != 0:
             conv = conv[:-1]
